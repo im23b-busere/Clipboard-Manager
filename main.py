@@ -4,12 +4,10 @@ import keyboard
 import customtkinter as ctk
 
 
-
 class ClipboardManager:
 
     def __init__(self):
         self.clipboard_history = []
-
 
     def ui_setup(self):
         self.app = ctk.CTk()
@@ -22,13 +20,15 @@ class ClipboardManager:
 
         self.app.mainloop()
 
-
-
     def monitor_clipboard(self):
         time.sleep(0.1)  # fix copied text delay
         current_text = pyperclip.paste()
-        self.clipboard_history.append(current_text)
-        self.update_history_display()
+        if current_text not in self.clipboard_history:
+            self.clipboard_history.append(current_text)
+            self.update_history_display()
+
+        else:
+            pass
 
     def get_clipboard_history(self):
         return self.clipboard_history
@@ -37,8 +37,6 @@ class ClipboardManager:
         self.history_box.delete(1.0, ctk.END)
         for text in self.clipboard_history:
             self.history_box.insert("end", text + "\n")
-
-
 
 
 if __name__ == '__main__':
