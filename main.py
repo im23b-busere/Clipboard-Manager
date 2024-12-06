@@ -16,6 +16,9 @@ class ClipboardManager:
         self.app.geometry("600x500")
         self.app.title("Clipboard Manager")
 
+        self.label = ctk.CTkLabel(self.app, text="Waiting for copied text...")
+        self.label.pack(pady=10)
+
         self.frame = ctk.CTkFrame(self.app)
         self.frame.pack(fill="both", expand=True)
 
@@ -38,6 +41,9 @@ class ClipboardManager:
         pyperclip.copy(text)
 
     def update_history_display(self):
+
+        if self.label.winfo_manager():
+            self.label.pack_forget()
 
         # Choose latest text
         latest_text = self.clipboard_history[-1]
