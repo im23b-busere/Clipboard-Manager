@@ -1,22 +1,20 @@
-import pyperclip
 import time
-import keyboard
 import customtkinter as ctk
+import keyboard
+import pyperclip
 
 
 class ClipboardManager:
 
     def __init__(self):
+        self.app = None
+        self.history_box = None
         self.clipboard_history = []
 
     def ui_setup(self):
         self.app = ctk.CTk()
         self.app.geometry("600x500")
         self.app.title("Clipboard Manager")
-
-        # add textbox
-        self.history_box = ctk.CTkTextbox(self.app, width=580, height=400)
-        self.history_box.pack(pady=20)
 
         self.app.mainloop()
 
@@ -33,10 +31,23 @@ class ClipboardManager:
     def get_clipboard_history(self):
         return self.clipboard_history
 
+    def copy_to_clipboard(self, text):
+        pyperclip.copy(text)
+
     def update_history_display(self):
-        self.history_box.delete(1.0, ctk.END)
+
         for text in self.clipboard_history:
+            # add textbox
+            self.history_box = ctk.CTkTextbox(self.app, width=180, height=100)
+            self.history_box.pack(pady=20)
+
+            # insert text into box
             self.history_box.insert("end", text + "\n")
+
+            # add button
+
+            copy_button = ctk.CTkButton(self.app, text="Copy", command=lambda t=text: self.copy_to_clipboard(t))
+            copy_button.pack(pady=10)
 
 
 if __name__ == '__main__':
