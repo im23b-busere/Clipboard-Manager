@@ -35,19 +35,24 @@ class ClipboardManager:
         pyperclip.copy(text)
 
     def update_history_display(self):
+        # Choose latest text
+        latest_text = self.clipboard_history[-1]
 
-        for text in self.clipboard_history:
-            # add textbox
-            self.history_box = ctk.CTkTextbox(self.app, width=180, height=100)
-            self.history_box.pack(pady=20)
+        # Frame
+        frame = ctk.CTkFrame(self.app)
+        frame.pack(pady=20, padx=20, fill="x")
 
-            # insert text into box
-            self.history_box.insert("end", text + "\n")
+        # Add textbox
+        history_box = ctk.CTkTextbox(frame, width=180, height=100)
+        history_box.pack(side="left", fill="both", expand=True)
 
-            # add button
+        # Insert text into box
+        history_box.insert("end", latest_text + "\n")
+        history_box.configure(state="disabled")  # Make the text box read-only
 
-            copy_button = ctk.CTkButton(self.app, text="Copy", command=lambda t=text: self.copy_to_clipboard(t))
-            copy_button.pack(pady=10)
+        # Add button
+        copy_button = ctk.CTkButton(frame, text="Copy", command=lambda t=latest_text: self.copy_to_clipboard(t))
+        copy_button.pack(side="left", padx=10)
 
 
 if __name__ == '__main__':
