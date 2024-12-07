@@ -3,24 +3,24 @@ import customtkinter as ctk
 import keyboard
 import pyperclip
 
+
 class ClipboardManager:
 
     def __init__(self):
-        self.frame = None
         self.app = None
-        self.history_box = None
+        self.frame = None
         self.clipboard_history = []
 
     def ui_setup(self):
         self.app = ctk.CTk()
         self.app.geometry("600x500")
-        self.app.title("Clipboard Manager")
+        self.app.title("Clipboard Manager by Erik")
 
         self.label = ctk.CTkLabel(self.app, text="Waiting for copied text...")
         self.label.pack(pady=10)
 
-        self.frame = ctk.CTkFrame(self.app)
-        self.frame.pack(fill="both", expand=True)
+        self.frame = ctk.CTkScrollableFrame(self.app)
+        self.frame.pack(fill="both", expand=True, padx=10, pady=10)
 
         self.app.mainloop()
 
@@ -48,12 +48,6 @@ class ClipboardManager:
         # Choose latest text
         latest_text = self.clipboard_history[-1]
 
-        # clear top widget if widgets > 4
-        children = self.frame.winfo_children()
-        if len(children) >= 4:
-            top_widget = children[0]
-            top_widget.destroy()
-
         frame = ctk.CTkFrame(self.frame)
         frame.pack(pady=10, padx=10, fill="x")
 
@@ -69,7 +63,11 @@ class ClipboardManager:
         copy_button = ctk.CTkButton(frame, text="Copy", command=lambda t=latest_text: self.copy_to_clipboard(t))
         copy_button.pack(side="left", padx=10)
 
+        self.scroll_to_bottom()
 
+    # scroll to bottom inspired by: https://stackoverflow.com/questions/77366191/customtkinters-ctkscrollableframe-autoscroll-to-bottom-python
+    def scroll_to_bottom(self):
+        self.app.after(1, self.frame._parent_canvas.yview_moveto, 1)
 
 
 if __name__ == '__main__':
