@@ -54,10 +54,20 @@ class ClipboardManager:
         history_box.configure(state="disabled")  # Make the text box read-only
 
 
-        copy_button = ctk.CTkButton(frame, text="Copy", command=lambda t=latest_text: self.copy_to_clipboard(t))
+        copy_button = ctk.CTkButton(frame, text="Copy")
+
+        copy_button.configure(command=lambda t=latest_text, b=copy_button: self.button_onclick(t, b))
         copy_button.pack(side="left", padx=10)
 
         self.scroll_to_bottom()
+
+
+    def button_onclick(self, text, button):
+        self.copy_to_clipboard(text)
+        button.configure(text="Copied ✔ ", text_color="lightgreen" )
+        self.app.after(1000, lambda: button.configure(text="Copy", text_color="white"))
+
+
 
     # scroll to bottom inspired by: https://stackoverflow.com/questions/77366191/customtkinters-ctkscrollableframe-autoscroll-to-bottom-python
     def scroll_to_bottom(self):
