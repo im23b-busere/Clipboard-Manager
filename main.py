@@ -31,12 +31,6 @@ class ClipboardManager:
             self.clipboard_history.append(current_text)
             self.update_history_display()
 
-        else:
-            pass
-
-    def get_clipboard_history(self):
-        return self.clipboard_history
-
     def copy_to_clipboard(self, text):
         pyperclip.copy(text)
 
