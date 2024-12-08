@@ -6,7 +6,9 @@
 Hast du schon einmal einen wichtigen Text kopiert und ihn dann verloren, weil du etwas anderes kopiert hast? Verabschiede dich vom Chaos in deiner Zwischenablage mit dem **Clipboard Manager**! Diese simple Python-Anwendung hilft dir, deine Zwischenablage zu verwalten, indem sie kopierte Texte speichert und dir ermöglicht, diese schnell wiederzuverwenden.
 
 
-<img src="https://github.com/user-attachments/assets/e79fb639-d986-49f2-ad9e-6172c5ad7d29" alt="Clipboard Manager Screenshot" width="500"/>
+<img src="https://github.com/user-attachments/assets/14a2ce2b-96dc-42f2-91d6-71d67eaaf75a" alt="Clipboard Manager Screenshot" width="500"/>
+
+
 
 
 ## Inhaltsverzeichnis
