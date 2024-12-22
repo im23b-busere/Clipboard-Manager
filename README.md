@@ -3,13 +3,11 @@
 
 ## Bist du müde, deine kopierten Texte zu verlieren?
 
-Hast du schon einmal einen wichtigen Text kopiert und ihn dann verloren, weil du etwas anderes kopiert hast? Verabschiede dich vom Chaos in deiner Zwischenablage mit dem **Clipboard Manager**! Diese simple Python-Anwendung hilft dir, deine Zwischenablage zu verwalten, indem sie kopierte Texte speichert und dir ermöglicht, diese schnell wiederzuverwenden.
-
+Hast du schon einmal einen wichtigen Text kopiert und ihn dann verloren, weil du etwas anderes kopiert hast? Verabschiede dich vom Chaos in deiner Zwischenablage mit dem **Clipboard Manager**! Diese einfache Anwendung hilft dir, deine Zwischenablage zu verwalten, indem sie kopierte Texte speichert und dir ermöglicht, diese schnell wiederzuverwenden.
 
 <img src="https://github.com/user-attachments/assets/14a2ce2b-96dc-42f2-91d6-71d67eaaf75a" alt="Clipboard Manager Screenshot" width="500"/>
 
-
-
+---
 
 ## Inhaltsverzeichnis
 
@@ -19,21 +17,36 @@ Hast du schon einmal einen wichtigen Text kopiert und ihn dann verloren, weil du
 - [Verwendung](#verwendung)
 - [Autor](#autor)
 
+---
+
 ## Features
 
 - **Zwischenablage-Überwachung**: Automatisches Protokollieren neuer Einträge in der Zwischenablage.
 - **Verlauf-Anzeige**: Zeigt den neuesten kopierten Text in einem scrollbaren Textfeld an.
+- **Einträge kopieren**: Kopiere jeden Eintrag im Verlauf bequem zurück in die Zwischenablage.
+- **Alle Einträge löschen**: Lösche die gesamte Verlaufsanzeige mit einem Klick.
+
+---
 
 ## Anforderungen
 
-Zum Ausführen dieses Projekts benötigst du:
-
+Falls du die Python-Version verwenden möchtest, benötigst du:
 - Python 3.x
-- Die **customtkinter**-Bibliothek für die grafische Benutzeroberfläche
-- Die **pyperclip**-Bibliothek für die Zwischenablage-Operationen
-- **keyboard** für Tastenkombinationen
+- Die Bibliotheken aus der `requirements.txt`:
+  - `customtkinter`
+  - `pyperclip`
+  - `keyboard`
+
+---
 
 ## Installation
+
+### Option 1: Verwende die ausführbare Datei (`main.exe`)
+
+1. Lade die neueste Version von [Releases](https://github.com/dein-benutzername/clipboard-manager/releases) herunter.
+2. Öffne die Datei `main.exe`, um die Anwendung zu starten – keine Installation notwendig!
+
+### Option 2: Starte das Python-Skript
 
 1. Klone das Repository:
    ```bash
@@ -46,16 +59,24 @@ Zum Ausführen dieses Projekts benötigst du:
    pip install -r requirements.txt
    ```
 
-## Verwendung
-
-1. Führe das Skript im Terminal oder der Kommandozeile aus:
+3. Starte die Anwendung:
    ```bash
    python main.py
    ```
 
-2. Die Anwendung startet und überwacht deine Zwischenablage.
-3. Verwende `Ctrl + C`, um die Zwischenablage zu aktivieren und Text zu speichern.
-4. Der Verlauf wird in der Anwendung angezeigt, und du kannst Einträge zurück in die Zwischenablage kopieren.
+---
+
+## Verwendung
+
+1. Starte die Anwendung (entweder `main.exe` oder `python main.py`).
+2. Die Anwendung überwacht automatisch deine Zwischenablage:
+   - Kopiere Text mit `Ctrl + C`, um ihn zu speichern.
+   - Der Verlauf wird in der Anwendung angezeigt.
+3. Klicke auf **"Copy"**, um einen Eintrag zurück in die Zwischenablage zu kopieren.
+4. Klicke auf **"Clear All"**, um den gesamten Verlauf zu löschen.
+5. Beende die Anwendung mit der Taste `Esc`.
+
+---
 
 ## Autor
 
