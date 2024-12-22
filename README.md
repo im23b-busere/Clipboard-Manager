@@ -43,7 +43,7 @@ Zum Ausführen dieses Projekts benötigst du:
 
 2. Installiere die benötigten Pakete:
    ```bash
-   pip install customtkinter pyperclip keyboard
+   pip install -r requirements.txt
    ```
 
 ## Verwendung
