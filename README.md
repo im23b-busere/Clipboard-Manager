@@ -43,7 +43,7 @@ Falls du die Python-Version verwenden möchtest, benötigst du:
 
 ### Option 1: Verwende die ausführbare Datei (`main.exe`)
 
-1. Lade die neueste Version von [Releases](https://github.com/dein-benutzername/clipboard-manager/releases) herunter.
+1. Lade die neueste Version von [Releases](https://github.com/im23b-busere/Clipboard-Manager/releases) herunter.
 2. Öffne die Datei `main.exe`, um die Anwendung zu starten – keine Installation notwendig!
 
 ### Option 2: Starte das Python-Skript
